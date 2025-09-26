@@ -12,7 +12,7 @@ const Navbar = ({availableBalance}) => {
                 </a>
             </div>
             <div className="flex items-center">
-                <span className="ml-1 font-bold text-xl">{availableBalance}</span>
+                <span className="ml-1 font-bold text-xl">${availableBalance}</span>
                 <span className="ml-1 font-bold text-xl">Coin</span>
                 <img className='ml-1 h-8 w-12' src={dollarImg} />
             </div>

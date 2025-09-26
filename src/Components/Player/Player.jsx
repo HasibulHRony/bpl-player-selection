@@ -6,10 +6,20 @@ const Player = ({ player, availableBalance, setAvailableBalance }) => {
 
     const [isSelected, setIsSelected] = useState(false)
 
-    const handleAvailableBalance = (player) =>{
-        const playersPriseMoney = parseInt(player.price)
+    const handleAvailableBalance = (player) => {
+        const { price } = player;
+        const playersPriseMoney = parseInt(price.replaceAll(",", ""));
+
+
+        if (availableBalance < playersPriseMoney) {
+            alert("Not enough coins");
+            return;
+            
+        }
+        console.log(playersPriseMoney)
         const newAvailableBalance = availableBalance - playersPriseMoney
         setAvailableBalance(newAvailableBalance)
+        setIsSelected(true)
     }
 
     console.log(player)
@@ -32,7 +42,7 @@ const Player = ({ player, availableBalance, setAvailableBalance }) => {
 
                 <div className="flex items-center mb-2 justify-between">
                     <p>Price: <span>{player.price}</span></p>
-                    <button disabled={isSelected} onClick={()=>{setIsSelected(true), handleAvailableBalance(player)}} className="btn">{isSelected ? "Selected" : "Choose Player"}</button>
+                    <button disabled={isSelected} onClick={() => handleAvailableBalance(player) } className="btn">{isSelected ? "Selected" : "Choose Player"}</button>
                 </div>
             </div>
         </div>
