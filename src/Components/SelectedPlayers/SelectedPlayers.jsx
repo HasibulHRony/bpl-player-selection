@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SelectedPlayers = () => {
+const SelectedPlayers = ({purchasedPlayers}) => {
     return (
         <div>
-            <h1>Selected</h1>
+            <h1>Selected{purchasedPlayers.length}</h1>
         </div>
     );
 };

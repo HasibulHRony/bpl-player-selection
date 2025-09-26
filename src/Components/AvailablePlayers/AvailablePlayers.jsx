@@ -1,15 +1,15 @@
 import React, { use } from 'react';
 import Player from '../Player/Player';
 
-const AvailablePlayers = ({allPlayersPromise, setAvailableBalance, availableBalance}) => {
+const AvailablePlayers = ({ allPlayersPromise, setAvailableBalance, availableBalance, purchasedPlayers, setPurchasedPlayers}) => {
     const allPlayers = use(allPlayersPromise)
     // console.log(allPlayers)
     return (
         <div className='max-w-[1280px] mx-auto grid grid-cols-3 gap-3'>
             {
-                allPlayers.map((player, index)=>{
-                    return(
-                        <Player availableBalance={availableBalance} setAvailableBalance={setAvailableBalance} key={index} player={player}></Player>
+                allPlayers.map((player, index) => {
+                    return (
+                        <Player purchasedPlayers={purchasedPlayers}  setPurchasedPlayers={setPurchasedPlayers}  availableBalance={availableBalance} setAvailableBalance={setAvailableBalance} key={index} player={player}></Player>
                     )
                 })
             }

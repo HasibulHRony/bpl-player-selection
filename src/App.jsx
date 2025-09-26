@@ -19,6 +19,7 @@ function App() {
 
   const [toggle, setToggle] = useState(true)
   const [availableBalance, setAvailableBalance] = useState(600000)
+  const [purchasedPlayers, setPurchasedPlayers] = useState([])
 
 
   return (
@@ -27,11 +28,14 @@ function App() {
       {
         <div className='max-w-[1280px] mx-auto flex justify-between items-center mt-2 mb-4'>
           <div>
-            <h3 className='text-xl font-semibold'>AvailablePlayers</h3>
+            <h3 className="text-xl font-semibold">
+              {toggle ? "Available Players" : `Selected Players ${purchasedPlayers.length}/6`}
+            </h3>
+
           </div>
           <div className='flex'>
             <button onClick={() => setToggle(true)} className={`p-1.5 text-xl border-2 rounded-l-2xl border-r-0 cursor-pointer ${toggle ? 'bg-[#E7FE29]' : ''}`}>Available</button>
-            <button onClick={() => setToggle(false)} className={`p-1.5 text-xl border-2 rounded-r-2xl border-l-0 cursor-pointer ${toggle === false ? 'bg-[#E7FE29]' : ''}`}>Selected</button>
+            <button onClick={() => setToggle(false)} className={`p-1.5 text-xl border-2 rounded-r-2xl border-l-0 cursor-pointer ${toggle === false ? 'bg-[#E7FE29]' : ''}`}>Selected{`${purchasedPlayers.length}`}</button>
           </div>
         </div>
       }
@@ -39,9 +43,9 @@ function App() {
 
       {
         toggle ? <Suspense fallback={<h1 className='text-center'>Loading</h1>}>
-          <AvailablePlayers availableBalance={availableBalance} setAvailableBalance={setAvailableBalance} allPlayersPromise={allPlayersPromise}></AvailablePlayers>
+          <AvailablePlayers purchasedPlayers={purchasedPlayers} setPurchasedPlayers={setPurchasedPlayers} availableBalance={availableBalance} setAvailableBalance={setAvailableBalance} allPlayersPromise={allPlayersPromise}></AvailablePlayers>
         </Suspense> :
-          <SelectedPlayers></SelectedPlayers>
+          <SelectedPlayers purchasedPlayers={purchasedPlayers}></SelectedPlayers>
       }
 
     </>

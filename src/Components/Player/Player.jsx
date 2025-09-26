@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import groupImg from "../../assets/Group.png"
 import reportImg from "../../assets/report.png"
-const Player = ({ player, availableBalance, setAvailableBalance }) => {
+const Player = ({ player, availableBalance, setAvailableBalance, purchasedPlayers, setPurchasedPlayers }) => {
 
 
     const [isSelected, setIsSelected] = useState(false)
@@ -20,6 +20,8 @@ const Player = ({ player, availableBalance, setAvailableBalance }) => {
         const newAvailableBalance = availableBalance - playersPriseMoney
         setAvailableBalance(newAvailableBalance)
         setIsSelected(true)
+        const newPurchasedPlayers = [...purchasedPlayers, player]
+        setPurchasedPlayers(newPurchasedPlayers)
     }
 
     console.log(player)
