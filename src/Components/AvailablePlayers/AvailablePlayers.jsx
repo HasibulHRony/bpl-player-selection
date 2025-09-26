@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { use } from 'react';
+import Player from '../Player/Player';
 
-const AvailablePlayers = () => {
+const AvailablePlayers = ({allPlayersPromise}) => {
+    const allPlayers = use(allPlayersPromise)
+    // console.log(allPlayers)
     return (
-        <div>
-            <h1>AvailAble</h1>
+        <div className='max-w-[1280px] mx-auto grid grid-cols-3 gap-3'>
+            {
+                allPlayers.map((player, index)=>{
+                    return(
+                        <Player key={index} player={player}></Player>
+                    )
+                })
+            }
         </div>
     );
 };
