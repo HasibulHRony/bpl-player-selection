@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import groupImg from "../../assets/Group.png"
 import reportImg from "../../assets/report.png"
-const Player = ({ player }) => {
+const Player = ({ player, availableBalance, setAvailableBalance }) => {
+
 
     const [isSelected, setIsSelected] = useState(false)
+
+    const handleAvailableBalance = (player) =>{
+        const playersPriseMoney = parseInt(player.price)
+        const newAvailableBalance = availableBalance - playersPriseMoney
+        setAvailableBalance(newAvailableBalance)
+    }
 
     console.log(player)
     return (
@@ -25,7 +32,7 @@ const Player = ({ player }) => {
 
                 <div className="flex items-center mb-2 justify-between">
                     <p>Price: <span>{player.price}</span></p>
-                    <button disabled={isSelected} onClick={()=>setIsSelected(true)} className="btn">{isSelected ? "Selected" : "Choose Player"}</button>
+                    <button disabled={isSelected} onClick={()=>{setIsSelected(true), handleAvailableBalance(player)}} className="btn">{isSelected ? "Selected" : "Choose Player"}</button>
                 </div>
             </div>
         </div>
