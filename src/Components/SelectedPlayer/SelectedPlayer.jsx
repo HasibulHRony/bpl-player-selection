@@ -1,6 +1,11 @@
 import React from 'react';
 import Vector from '../../assets/Vector.png'
-const SelectedPlayer = ({ purchasedPlayer }) => {
+const SelectedPlayer = ({ purchasedPlayer, handleRemoveSelected }) => {
+
+    const removeSelected = (handleRemoveSelected) =>{
+        handleRemoveSelected(purchasedPlayer)
+    }
+
     return (
         <div className='flex justify-between items-center px-5 py-3 border border-gray-200 shadow-sm rounded-2xl mt-2'>
             <div className='flex justify-center ml-4 items-center'>
@@ -10,7 +15,7 @@ const SelectedPlayer = ({ purchasedPlayer }) => {
                     <p  className='text-lg font-semibold'>{purchasedPlayer.play_role}</p>
                 </div>
             </div>
-            <img className='mr-4' src={Vector} alt="" />
+            <img onClick={()=>removeSelected(handleRemoveSelected)} className='mr-4 cursor-pointer' src={Vector} alt="" />
         </div>
     );
 };

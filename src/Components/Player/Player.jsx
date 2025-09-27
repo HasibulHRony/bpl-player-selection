@@ -16,7 +16,7 @@ const Player = ({ player, availableBalance, setAvailableBalance, purchasedPlayer
             return;
             
         }
-        console.log(playersPriseMoney)
+        
         const newAvailableBalance = availableBalance - playersPriseMoney
         setAvailableBalance(newAvailableBalance)
         setIsSelected(true)
@@ -24,7 +24,6 @@ const Player = ({ player, availableBalance, setAvailableBalance, purchasedPlayer
         setPurchasedPlayers(newPurchasedPlayers)
     }
 
-    console.log(player)
     return (
         <div key={player.player_name} className="card bg-gray-300 shadow-sm">
             <figure className='p-4'>
