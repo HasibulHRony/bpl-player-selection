@@ -1,9 +1,16 @@
 import React from 'react';
+import SelectedPlayer from '../SelectedPlayer/SelectedPlayer';
 
 const SelectedPlayers = ({purchasedPlayers}) => {
     return (
-        <div>
-            <h1>Selected{purchasedPlayers.length}</h1>
+        <div className='max-w-[1280px] mx-auto mt-2'>
+            {
+                purchasedPlayers.map((purchasedPlayer, index)=>{
+                    return(
+                        <SelectedPlayer key={index} purchasedPlayer={purchasedPlayer}></SelectedPlayer>
+                    )
+                })
+            }
         </div>
     );
 };

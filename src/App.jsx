@@ -34,8 +34,8 @@ function App() {
 
           </div>
           <div className='flex'>
-            <button onClick={() => setToggle(true)} className={`p-1.5 text-xl border-2 rounded-l-2xl border-r-0 cursor-pointer ${toggle ? 'bg-[#E7FE29]' : ''}`}>Available</button>
-            <button onClick={() => setToggle(false)} className={`p-1.5 text-xl border-2 rounded-r-2xl border-l-0 cursor-pointer ${toggle === false ? 'bg-[#E7FE29]' : ''}`}>Selected{`${purchasedPlayers.length}`}</button>
+            <button onClick={() => setToggle(true)} className={`p-1.5 text-xl border-2 rounded-l-2xl border-r-0 cursor-pointer font-bold ${toggle ? 'bg-[#E7FE29]' : ''}`}>Available</button>
+            <button onClick={() => setToggle(false)} className={`p-1.5 text-xl border-2 rounded-r-2xl border-l-0 cursor-pointer font-bold ${toggle === false ? 'bg-[#E7FE29]' : ''}`}>Selected {`${purchasedPlayers.length}`}</button>
           </div>
         </div>
       }
