@@ -17,6 +17,10 @@ const Player = ({ player, availableBalance, setAvailableBalance, purchasedPlayer
             
         }
         
+        if(purchasedPlayers.length >= 6){
+            alert("You already have selected 6 players")
+            return;
+        }
         const newAvailableBalance = availableBalance - playersPriseMoney
         setAvailableBalance(newAvailableBalance)
         setIsSelected(true)

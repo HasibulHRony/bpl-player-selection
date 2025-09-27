@@ -17,7 +17,7 @@ const allPlayersPromise = allPlayersHandler()
 function App() {
 
   const [toggle, setToggle] = useState(true)
-  const [availableBalance, setAvailableBalance] = useState(600000)
+  const [availableBalance, setAvailableBalance] = useState(60000000)
   const [purchasedPlayers, setPurchasedPlayers] = useState([])
 
   const handleRemoveSelected = (element) => {
@@ -58,7 +58,7 @@ function App() {
         toggle ? <Suspense fallback={<h1 className='text-center'>Loading</h1>}>
           <AvailablePlayers purchasedPlayers={purchasedPlayers} setPurchasedPlayers={setPurchasedPlayers} availableBalance={availableBalance} setAvailableBalance={setAvailableBalance} allPlayersPromise={allPlayersPromise}></AvailablePlayers>
         </Suspense> :
-          <SelectedPlayers handleRemoveSelected={handleRemoveSelected} purchasedPlayers={purchasedPlayers}></SelectedPlayers>
+          <SelectedPlayers toggle={toggle} setToggle={setToggle} handleRemoveSelected={handleRemoveSelected} purchasedPlayers={purchasedPlayers}></SelectedPlayers>
       }
 
     </>
